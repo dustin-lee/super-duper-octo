@@ -1,0 +1,39 @@
+<div ng-controller='newMentorController as meep' style="width: 80%;">
+
+<h2 style="margin-left: 30px; color:white;">Mentees For You</h2>
+<div id="myprofile" ng-repeat="x in meep.mentors">
+  <h3 style="display: inline-block;">Your Profile</h3><hr>
+  <p>Email: {{x.email}}</p>
+  <p>Zipcode: {{x.zipcode}}</p>
+  <p>Can teach: {{x.focus}}</p>
+  <p>Industry: {{x.industry}}</p>
+  <p>Linkedin: {{x.linkedin}}</p>
+  <p>Background: {{x.background}}</p>
+  <p>Age: {{x.age}}</p>
+  <p>Range: {{x.range}}</p>
+  <p><a href="#/">Edit Profile<a></p>
+</div>
+</div>
+
+<div ng-controller='filteredMenteeController as meep' style="width: 80%;">
+<div id="available_matches">
+<div class="card small" ng-repeat="x in meep.mentees" id="profile">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="assets/static/no-foto-m.png">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4" style="margin-top: 40px; ">{{x.first}} {{x.last}}   <i class="material-icons right">^</i><br>knows {{x.focus}}.
+      </span><br>
+      <i class="material-icons right"><a href="#/message"><img src="http://i.imgur.com/IaMC2hr.png" width="40px" height="40px"></a></i>
+    </div>
+    <div class="card-reveal">
+      <br><span class="card-title grey-text text-darken-4"> &nbsp; &nbsp; {{x.first}} {{x.last}} <i class="material-icons right">x&nbsp;&nbsp;</i></span>
+      <p class="profileinfo" style="margin-left: 26px;">Email: {{x.email}}</p>
+      <p class="profileinfo" style="margin-left: 26px;">Industry: {{x.industry}}</p>
+      <p class="profileinfo" style="margin-left: 26px;">LinkedIn: {{x.linkedin}}</p>
+      <p class="profileinfo" style="margin-left: 26px;">Background: {{x.background}}</p>
+      <p class="profileinfo" style="margin-left: 26px;">Age: {{x.age}}</p>
+    </div>
+  </div>
+</div>
+</div>

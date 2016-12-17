@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<html ng-app="BasicChat">
+
+<head>
+<meta charset="utf-8">
+<title>BECOME</title>
+<script src="jquery.js"></script>
+<script src="angular.js"></script>
+<script src="angular-route.min.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/factories/mentorFactory.js"></script>
+<script src="assets/controllers/newMentorController.js"></script>
+<script src="assets/controllers/newMenteeController.js"></script>
+<script src="assets/controllers/filteredMenteeController.js"></script>
+<script src="assets/controllers/filteredMentorController.js"></script>
+<!-- <script src="assets/controllers/showMentorController.js"></script> -->
+<!-- <script src="assets/controllers/showMenteeController.js"></script> -->
+<!-- <script src="assets/controllers/chat.js"></script> -->
+
+<!-- <script src="ng-file-upload-shim.min.js"></script>
+<script src="ng-file-upload.min.js"></script> -->
+
+<link rel="stylesheet" type="text/css" href="assets/static/styles.css">
+<link rel="stylesheet" type="text/css" href="assets/static/menu.css">
+<link rel="stylesheet" type="text/css" href="assets/static/arrow.css">
+<link rel="stylesheet" type="text/css" href="assets/static/sharebutton.css">
+<link rel="stylesheet" type="text/css" href="assets/static/login.css">
+<link type="text/css" rel="stylesheet" href="assets/static/materialize.css" media="screen,projection"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+<!-- <script src="bower_components/rltm/web/rltm.js"></script>
+<script src="bower_components/angular-chat/angular-chat.js"></script> -->
+
+<script>
+
+$(function() {
+    var $sidebar   = $("#sidebar"),
+        $sidebar2  = $("sidebar2"),
+        $window    = $(window),
+        offset     = $sidebar.offset(),
+        topPadding = 15;
+
+    $window.scroll(function() {
+        if ($window.scrollTop() > offset.top) {
+            $sidebar.stop().animate({
+                marginTop: $window.scrollTop() - offset.top + topPadding;
+            });
+        } else {
+            $sidebar.stop().animate({
+                marginTop: 0;
+            });
+        }
+    });
+
+});
+</script>
+
+<script>
+$(window).scroll(function() {
+if ($(this).scrollTop()>0)
+  {
+     $('#sidebar2, #sidebar3, #sidebar4').fadeOut();
+     if ($('#sidebar').hover(function() {
+      $('#sidebar2, #sidebar3, #sidebar4').fadeIn();
+    }));
+  }
+ else
+  {
+   $('#sidebar2, #sidebar3, #sidebar4').fadeIn();
+  }
+});
+</script>
+
+<script>
+var chat = angular.module( 'BasicChat', ['chat'] );
+
+angular.module('chat').constant('config', {
+    rltm: {
+        service: "pubnub",
+        config: {
+            publishKey: "pub-c-c389d2d3-28da-49a2-a07b-cdd950067f53",
+            subscribeKey: "sub-c-59e2dcf8-c3d8-11e6-b369-02ee2ddab7fe"
+        }
+    }
+});
+</script>
+
+
+
+</head>
+<body>
+  <div id="navbar">
+    <a href="#/">Home</a>
+    <a href="#/about">About Us</a>
+    <a href="#/mentor/signup">Mentors</a>
+    <a href="#/mentee/signup">Mentees</a>
+    <a href="#/logout">Logout</a>
+  </div>
+
+<div ng-view="" ></div>
+<!-- <footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">FOOTER</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2016 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer> -->
+<footer class="thefooter">
+  <div id="middleofthefooter">
+    <p id="copyrighttag">©2016 Become</p>
+		<div class="col-md-12">
+        <ul class="social-network social-circle">
+            <li><a href="http://www.facebook.com" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="http://www.twitter.com" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://plus.google.com/" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="https://www.linkedin.com/feed/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+	</div>
+    <div id="linktags">
+      <a href="#/">Home</a> |
+      <a href="#/about">About Us</a> |
+      <a href="#/mentor/signup">Mentors</a> |
+      <a href="#/mentee/signup">Mentees</a> |
+      <a href="#/">Logout</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

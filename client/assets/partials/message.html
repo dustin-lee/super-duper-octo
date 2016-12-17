@@ -1,0 +1,31 @@
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+<div ng-app="BasicChat">
+    <div ng-controller="chat">
+        <h1>You are support-agent</h1>
+        <p>Creates new chats for every visitor. Open index.html to see start a new chat.</p>
+
+        <div ng-repeat="chat in chats">
+
+            <h2>Chat with {{chat.user.name}}</h2>
+
+            <hr />
+
+            <div ng-repeat="message in chat.messages">
+                <strong>{{message.user.name}}:</strong>
+                <span>{{message.data}}</span>
+            </div>
+
+            <form ng-submit="send(chat.user.id, chat.textbox)">
+                <input ng-model="chat.textbox">
+            </form>
+
+            <hr />
+
+        </div>
+
+    </div>
+</div>
